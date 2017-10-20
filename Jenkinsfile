@@ -1,7 +1,11 @@
 pipeline {
   agent any
   stages {
-    stage('') {
+    stage('inicial') {
+      steps {
+        echo 'sss'
+      }
+      stage('secundaria') {
       steps {
         echo 'sss'
       }
