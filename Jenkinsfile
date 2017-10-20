@@ -1,14 +1,21 @@
 pipeline {
-  agent any
-  stages {
-    stage('inicial') {
-      steps {
-        echo 'sss'
-      }
-      stage('secundaria') {
-      steps {
-        echo 'sss'
-      }
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
     }
-  }
 }
