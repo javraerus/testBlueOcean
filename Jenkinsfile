@@ -5,6 +5,10 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                withDockerContainer("php:7-fpm") {
+                     sh "php -v"
+                 }
+                
             }
         }
         stage('Test') {
