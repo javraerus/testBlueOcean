@@ -26,7 +26,7 @@ unHealthy: '100000'])
                 $class: 'WarningsPublisher',
                 parserConfigurations: [[
                     parserName: 'LK_BugFinder_Defects_Parser',
-                    pattern: '/Users/jraezrus/prueba.txt'
+                    pattern: '/Users/jraezrus/prueba.xml'
                 ]
             ]])
         }
