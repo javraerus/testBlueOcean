@@ -1,11 +1,6 @@
 import hudson.FilePath
 timestamps {
     node ('master') {
-        
-        def checkoutTools = new CheckoutTools()
-        
-       
-
         stage ('Build Polyspace results') {
             echo "hello"
         }
