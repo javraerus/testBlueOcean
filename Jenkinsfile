@@ -5,7 +5,7 @@ timestamps {
             echo "hello2"
         }
         
-        
+        /*
         step([$class: 'WarningsPublisher',
 consoleParsers: [
 [parserName: 'Java Compiler (javac)'],
@@ -20,7 +20,7 @@ healthy: '1000',
 includePattern: '',
 messagesPattern: '',
 unHealthy: '100000'])
-        /*
+        */
         stage('Scan for Polyspace warnings') {
             step([
                 $class: 'WarningsPublisher',
@@ -29,7 +29,7 @@ unHealthy: '100000'])
                     pattern: '/Users/jraezrus/prueba.txt'
                 ]
             ]])
-        }*/
+        }
         stage('Publish HTML reports') {
             publishHTML([
                 allowMissing:          false,
