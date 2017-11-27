@@ -9,7 +9,7 @@ timestamps {
                 $class: 'WarningsPublisher',
                 parserConfigurations: [[
                     parserName: 'LK_BugFinder_Defects_Parser',
-                    pattern: 'prueba.txt'
+                    pattern: '/Users/jraezrus/prueba.txt'
                 ]
             ]])
         }
