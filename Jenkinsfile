@@ -9,22 +9,7 @@ timestamps {
                 $class: 'WarningsPublisher',
                 parserConfigurations: [[
                     parserName: 'LK_BugFinder_Defects_Parser',
-                    pattern: 'Variant/RdW/Target/Release/Polyspace/BugFinder/_result/Polyspace-Doc/ResultsBL_List_annotationfilter.txt'
-                ]
-            ]])
-            step([
-                $class: 'WarningsPublisher',
-                parserConfigurations: [[
-                    parserName: 'LK_Polyspace',
-                    pattern: 'Variant/RdW/Target/Release/Polyspace/BugFinder/_result/Polyspace-Doc/ResultsBL_List_annotationfilter.txt'
-                ]
-            ]])
-            
-            step([
-                $class: 'WarningsPublisher',
-                parserConfigurations: [[
-                    parserName: 'LK_Polyspace_Bf',
-                    pattern: 'Variant/RdW/Target/Release/Polyspace/BugFinder/_result/Polyspace-Doc/ResultsBL_List_annotationfilter.txt'
+                    pattern: 'prueba.txt'
                 ]
             ]])
         }
