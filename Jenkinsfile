@@ -2,7 +2,7 @@ import hudson.FilePath
 timestamps {
     node ('master') {
         stage ('Build Polyspace results') {
-            echo "hello"
+            echo "hello2"
         }
         stage('Scan for Polyspace warnings') {
             step([
