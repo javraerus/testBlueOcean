@@ -4,6 +4,23 @@ timestamps {
         stage ('Build Polyspace results') {
             echo "hello2"
         }
+        
+        
+        step([$class: 'WarningsPublisher',
+consoleParsers: [
+[parserName: 'Java Compiler (javac)'],
+],
+canComputeNew: true,
+canResolveRelativePaths: true,
+canRunOnFailed: true,
+categoriesPattern: '',
+defaultEncoding: '',
+excludePattern: '',
+healthy: '1000',
+includePattern: '',
+messagesPattern: '',
+unHealthy: '100000'])
+        /*
         stage('Scan for Polyspace warnings') {
             step([
                 $class: 'WarningsPublisher',
@@ -12,7 +29,7 @@ timestamps {
                     pattern: '/Users/jraezrus/prueba.txt'
                 ]
             ]])
-        }
+        }*/
         stage('Publish HTML reports') {
             publishHTML([
                 allowMissing:          false,
