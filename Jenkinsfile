@@ -21,7 +21,7 @@ includePattern: '',
 messagesPattern: '',
 unHealthy: '100000'])
         */
-        stage('Scan for Polyspace warnings-8') {
+        stage('Scan for Polyspace warnings-8777') {
             step([
                 $class: 'WarningsPublisher',
                 parserConfigurations: [[
