@@ -21,12 +21,12 @@ includePattern: '',
 messagesPattern: '',
 unHealthy: '100000'])
         */
-        stage('Scan for Polyspace warnings-4') {
+        stage('Scan for Polyspace warnings-8') {
             step([
                 $class: 'WarningsPublisher',
                 parserConfigurations: [[
                     parserName: 'LK_BugFinder_Defects_Parser',
-                    pattern: '/Users/jraezrus/prueba.xml'
+                    pattern: 'prueba.xml'
                 ]
             ]])
         }
