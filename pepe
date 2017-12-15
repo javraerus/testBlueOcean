@@ -1,4 +1,4 @@
-timestamps {
+pipeline {
     node ('master') {
         stage ('Build Polyspace results') {
             echo "hello3"
