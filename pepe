@@ -9,6 +9,9 @@ pipeline {
       label 'master'
     }
   }
+    options { 
+      skipDefaultCheckout() 
+  }
   stages {
     stage('Build') {
   
