@@ -24,14 +24,9 @@ pipeline {
         //
         // But wait! Another validation issue! Two, actually! I didn't use the
         // right type for "time" and had a typo in "unit".
-        timeout(time: true, uint: 'MINUTES') {
-          echo "We're not doing anything particularly special here."
-          echo "Just making sure that we don't take longer than five minutes"
-          echo "Which, I guess, is kind of silly."
-          
-          // This'll output 3.3.3, since that's the Maven version we
+             // This'll output 3.3.3, since that's the Maven version we
           // configured above. Well, once we fix the validation error!
-          sh "mvn -version" 
+         echo "Hola caracola"
         }
       }
       
