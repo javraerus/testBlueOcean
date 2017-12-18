@@ -19,13 +19,11 @@ pipeline {
       parallel {
         stage('second stage') {
           steps {
-            echo 'This time, the Maven version should be 3.3.9'
             checkpoint 'Completed tests'
           }
         }
         stage('check') {
           steps {
-            sh 'sh "echo \'hola\'"'
             checkpoint 'dddd'
           }
         }
