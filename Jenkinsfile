@@ -17,11 +17,11 @@ pipeline {
     }
     stage('second stage') {
 
-        stage('check') {
+       
           steps {
             checkpoint 'dddd'
           }
-        }
+       
       
     }
     stage('third stage') {
