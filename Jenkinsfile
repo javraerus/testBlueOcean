@@ -15,6 +15,7 @@ pipeline {
         }
       }
     }
+    checkpoint 'dddd'
     stage('second stage') {
 
        
