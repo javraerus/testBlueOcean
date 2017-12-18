@@ -31,7 +31,7 @@ pipeline {
       }
       
       // Post can be used both on individual stages and for the entire build.
-    }
+    
     
     stage('second stage') {
       // You can override tools, environment and agent on each stage if you want.
