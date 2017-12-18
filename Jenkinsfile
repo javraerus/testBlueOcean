@@ -1,65 +1,48 @@
 pipeline {
-
-  // agent defines where the pipeline will run.
-  agent {
-    // This also could have been 'agent any' - that has the same meaning.
-    label ""
-    // Other possible built-in agent types are 'agent none', for not running the
-    // top-level on any agent (which results in you needing to specify agents on
-    // each stage and do explicit checkouts of scm in those stages), 'docker',
-    // and 'dockerfile'.
-  }
-  
-  // The tools directive allows you to automatically install tools configured in
-  // Jenkins - note that it doesn't work inside Docker containers currently.
- 
-
+  agent any
   stages {
-    // At least one stage is required.
-    stage("first stage") {
-      // Every stage must have a steps block containing at least one step.
-      steps {
-        // You can use steps that take another block of steps as an argument,
-        // like this.
-        //
-        // But wait! Another validation issue! Two, actually! I didn't use the
-        // right type for "time" and had a typo in "unit".
-             // This'll output 3.3.3, since that's the Maven version we
-          // configured above. Well, once we fix the validation error!
-         echo "Hola caracola"
+    stage('first stage') {
+      parallel {
+        stage('first stage') {
+          steps {
+            echo 'Hola caracola'
+          }
+        }
+        stage('hola') {
+          steps {
+            sh 'sh "echo \'hola\'"'
+          }
         }
       }
-      
-      // Post can be used both on individual stages and for the entire build.
-    
-    
+    }
     stage('second stage') {
-      // You can override tools, environment and agent on each stage if you want.
-
-      
-      steps {
-        echo "This time, the Maven version should be 3.3.9"
-    checkpoint 'Completed tests'
-
+      parallel {
+        stage('second stage') {
+          steps {
+            echo 'This time, the Maven version should be 3.3.9'
+            checkpoint 'Completed tests'
+          }
+        }
+        stage('check') {
+          steps {
+            sh 'sh "echo \'hola\'"'
+          }
+        }
       }
     }
-    
     stage('third stage') {
-      steps {
-        // Note that parallel can only be used as the only step for a stage.
-        // Also, if you want to have your parallel branches run on different
-        // nodes, you'll need control that manually with "node('some-label') {"
-        // blocks inside the parallel branches, and per-stage post won't be able
-        // to see anything from the parallel workspaces.
-        // This'll be improved by https://issues.jenkins-ci.org/browse/JENKINS-41334, 
-        // which adds Declarative-specific syntax for parallel stage execution.
-        sh kjhkjhkjh
+      parallel {
+        stage('third stage') {
+          steps {
+            sh kjhkjhkjh
+          }
+        }
+        stage('') {
+          steps {
+            sh 'sh "echo \'adios\'"'
+          }
+        }
       }
+    }
   }
-  
-  
-
-
-}
-
 }
