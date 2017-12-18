@@ -1,5 +1,7 @@
 pipeline {
   agent any
+  options { skipDefaultCheckout() }
+
   stages {
     stage('first stage') {
       parallel {
