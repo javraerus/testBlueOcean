@@ -16,18 +16,13 @@ pipeline {
       }
     }
     stage('second stage') {
-      parallel {
-        stage('second stage') {
-          steps {
-            checkpoint 'Completed tests'
-          }
-        }
+
         stage('check') {
           steps {
             checkpoint 'dddd'
           }
         }
-      }
+      
     }
     stage('third stage') {
       parallel {
