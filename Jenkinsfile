@@ -1,7 +1,5 @@
 pipeline {
   agent any
-  options { skipDefaultCheckout() }
-
   stages {
     stage('first stage') {
       parallel {
@@ -28,6 +26,7 @@ pipeline {
         stage('check') {
           steps {
             sh 'sh "echo \'hola\'"'
+            checkpoint 'dddd'
           }
         }
       }
@@ -36,15 +35,18 @@ pipeline {
       parallel {
         stage('third stage') {
           steps {
-            sh kjhkjhkjh
+            ws(dir: 'sss')
           }
         }
-        stage('') {
+        stage('error') {
           steps {
             sh 'sh "echo \'adios\'"'
           }
         }
       }
     }
+  }
+  options {
+    skipDefaultCheckout()
   }
 }
