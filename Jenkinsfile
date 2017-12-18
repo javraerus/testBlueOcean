@@ -36,24 +36,11 @@ pipeline {
       }
       
       // Post can be used both on individual stages and for the entire build.
-      post {
-        success {
-          echo "Only when we haven't failed running the first stage"
-        }
-        
-        failure {
-          echo "Only when we fail running the first stage."
-        }
-      }
     }
     
     stage('second stage') {
       // You can override tools, environment and agent on each stage if you want.
-      tools {
-        // Here, we're overriding the original maven tool with a different
-        // version.
-        maven "mvn3.3.9"
-      }
+
       
       steps {
         echo "This time, the Maven version should be 3.3.9"
