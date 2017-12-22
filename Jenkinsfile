@@ -1,4 +1,4 @@
-pipeline {
+/*pipeline {
   agent any
   stages {
     stage('first stage') {
@@ -44,3 +44,21 @@ pipeline {
     skipDefaultCheckout()
   }
 }
+*/
+pipeline {
+  agent {
+    node {
+      docker.label('jenkins-java')
+    }
+  }
+  stages {
+    stage('CI') {
+      steps {
+        sh 'ls -al'
+        sh "cd ${env.WORKSPACE}"
+        sh 'ls -al'
+      }
+    }
+  }
+}
+
