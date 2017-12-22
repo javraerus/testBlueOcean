@@ -47,9 +47,8 @@
 */
 pipeline {
   agent {
-    node {
       docker{image 'jenkins'}
-    }
+    
   }
   stages {
     stage('CI') {
