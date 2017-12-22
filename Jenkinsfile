@@ -48,7 +48,7 @@
 pipeline {
   agent {
     node {
-      docker.label('jenkins')
+      docker{image 'jenkins'}
     }
   }
   stages {
