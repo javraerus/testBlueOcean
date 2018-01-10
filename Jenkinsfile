@@ -45,6 +45,7 @@
   }
 }
 */
+/*
 pipeline {
   agent {
       docker{image 'jenkins'}
@@ -61,3 +62,20 @@ pipeline {
   }
 }
 
+*/
+
+pipeline {
+    agent any
+    stages {
+        stage('Example') {
+            steps {
+                 echo 'ERROR: oh no'
+            }
+        }
+    }
+   post { 
+        always { 
+            step([$class: 'LogParserPublisher', parsingRulesPath: '/Users/jraezrus/rules/rulesParser', useProjectRule: false])
+        }
+   }
+}
