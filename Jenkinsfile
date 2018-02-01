@@ -63,7 +63,7 @@ pipeline {
 }
 
 */
-
+/*
 pipeline {
     agent any
     stages {
@@ -78,4 +78,19 @@ pipeline {
             step([$class: 'LogParserPublisher', parsingRulesPath: '/Users/jraezrus/rules/rulesParser', useProjectRule: false])
         }
    }
+}
+*/
+
+pipeline {
+    agent any
+   triggers { 
+  cron('*/5 * * * *') 
+  } 
+    stages {
+        stage('Example') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+    }
 }
